@@ -4,7 +4,7 @@ import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 
 import rootReducer from './rootReducer'
-import MovieLibrary from './MovieLibrary'
+import MovieLibrary from './MovieLibrary/components/movieLibrary/MovieLibrary'
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

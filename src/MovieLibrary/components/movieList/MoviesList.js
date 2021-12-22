@@ -2,7 +2,7 @@ import React, { Component, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import TMDBImage from './TMDBImage'
+import TMDBImage from '../TMDBImage'
 import './MoviesList.css'
 
 export default class MoviesList extends PureComponent {

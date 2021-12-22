@@ -1,4 +1,6 @@
-import {FETCH_MOVIES} from '../../actionTypes'
+import {FETCH_MOVIES, GET_MOVIES} from '../../actionTypes'
+
+
 
 const initialState = {
   movies: []
@@ -13,6 +15,11 @@ export default function movies(state = initialState, action) {
         ...state,
         movies: payload
       }
+      case GET_MOVIES:
+        return {
+          ...state,
+          movies: payload
+        }  
 
     default:
       return state
