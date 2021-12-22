@@ -2,6 +2,7 @@ import React, { Component, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
+import { moviesBy } from '../sort'
 import MovieListItem from './MovieListItem'
 
 import TMDBImage from '../TMDBImage'
@@ -19,7 +20,7 @@ export default class MoviesList extends PureComponent {
   }
   handleSelectMovie = item => this.setState({selectedMovie: item, detail:true})
 
-  handleSortingChange = sortingType => console.log(sortingType)
+  handleSortingChange = sortingType => this.setState(moviesBy(this.props.movies, sortingType));
 
   render() {
 
