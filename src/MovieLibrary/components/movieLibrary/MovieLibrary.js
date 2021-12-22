@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {connect} from 'react-redux'
+
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import logo from '../logo.svg'
@@ -12,14 +13,16 @@ import MoviesList from '../movieList/MoviesList'
     const MovieLibrary = ({movies, getMoviesAPI}) => {
 
       const [data, setData] = useState([])
+     
       const [page, setPage] = useState(1)
 
-      const handleScroll = () => setPage((prevPage) => prevPage + 1)
+      const handleScrollInfinite = () => setPage((prevPage) => prevPage + 1)
 
       useEffect(() => {
         getMoviesAPI(page)
       }, [page])
 
+      
       let array = [];
       array = data.concat(movies)
 
@@ -33,15 +36,15 @@ import MoviesList from '../movieList/MoviesList'
             <img src={logo} className="ML-logo" alt="logo" />
             <h1 className="ML-title">Movies</h1>
           </header>
-          <InfiniteScroll
-            dataLength={data.length}
-            hasMore={true}
-            next={handleScroll}
-          >
-          <div className="ML-intro">
-            { data.length && <MoviesList movies={data}/> }
-          </div>
-          </InfiniteScroll>
+            <InfiniteScroll
+              dataLength={data.length}
+              hasMore={true}
+              next={handleScrollInfinite}
+            >
+            <div className="ML-intro">
+              { data.length && <MoviesList movies={data}/> }
+            </div>
+            </InfiniteScroll>
         </div>
       );
     }
